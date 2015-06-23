@@ -1,19 +1,43 @@
-Welcome to Polymer Starter Kit Light!
+Go and Polymer - Friends Forever
+=============
 
-To begin, fire up a local server from inside the `app` directory. Please make sure to serve up the contents of the directory rather than root as routing will otherwise fail to correctly function.
+This is an example application taken from the [official Polymer tutorial](https://www.polymer-project.org/docs/start/tutorial/intro.html),
+but modified to use Go to serve the json rather than a static json file. This can be used as a basis point for your
+projects where you want to use Go and Polymer.
 
-## Firing up a server using Python
+This is ready to use standalone or on Google App Engine.
 
-If you are a Windows user, install Python and from inside the `app` directory run:
+## Live Demo
+
+http://go-polymer.appspot.com/
+
+## Go Get
 
 ```
-python -m http.server 8080
+go get github.com/treeder/go-polymer
+cd $GOPATH/src/github.com/treeder/go-polymer
 ```
 
-or on a Mac/*nix machine, run:
+## Running locally
 
 ```
-python -m SimpleHTTPServer 8080
+go build && ./go-polymer
 ```
 
-You can of course also use WAMP or an alternative tool for serving up content. 
+Then check http://localhost:8080
+
+## Running on App Engine
+
+Since this is ready to use on App Engine, you'll want to use the `goapp` tool.
+
+```
+goapp serve
+```
+
+## Deploying on App Engine
+
+Change the application name in app.yaml to your application name (from Google Developer Console), then:
+
+```
+goapp deploy
+```
