@@ -37,8 +37,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     /* paper-drawer-panel */
     --drawer-menu-color: #ffffff;
-    --drawer-border-color: 1px solid #ccc;
-    --drawer-toolbar-border-color: 1px solid rgba(0, 0, 0, 0.22);
+    --drawer-border-color: 0px solid #000;
+    --drawer-toolbar-border-color: 0px solid rgba(0, 0, 0, 0.22);
 
     /* paper-menu */
     --paper-menu-background-color: #fff;
@@ -54,16 +54,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     height: 64px;
   }
 
+  .paper-font-title{
+    margin-left: 13px;
+  }
+  
+  #narrowToolbar{
+    background: transparent;
+  }
+
   paper-material {
     border-radius: 2px;
     height: 100%;
     padding: 16px 0 16px 0;
     width: calc(98.66% - 16px);
     margin: 16px auto;
-    background: white;
+    margin-left: 20px;
+    background: rgba(204,204,204,0.2);
   }
 
   paper-menu iron-icon {
+    margin-left: 11px;
     margin-right: 33px;
     opacity: 0.54;
   }
@@ -94,14 +104,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     padding: 0 16px;
   }
 
-  #mainToolbar .middle {
-    margin-left: 48px;
-  }
-
-  #mainToolbar.has-shadow .middle {
+  #mainToolbar {
     font-size: 20px;
-    padding-bottom: 0;
-    margin-left: 48px;
+    background: rgba(204,204,204,0.3);
+    color: var(--primary-text-color);
+  }
+      
+  #mainToolbar .middle {
+    margin-left: 65px;
+  }
+    
+  #paperToggle {   
+    margin-left: 3px;
   }
 
   /* Height of the scroll area */

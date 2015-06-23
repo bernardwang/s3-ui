@@ -56,9 +56,35 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 </head>
 
 <body unresolved class="fullbleed layout vertical">
+    
   <span id="browser-sync-binding"></span>
   <template is="dom-bind" id="app">
+      
+    <paper-drawer-panel drawer-width="100vw">
+        
+      <div drawer mode="seamed">
+        
+        <paper-toolbar id="narrowToolbar"></paper-toolbar>
 
+        <!-- Drawer Content -->
+        <paper-menu class="list" attr-for-selected="data-route" selected="{{route}}" on-iron-select="onMenuSelect">
+          <a data-route="home" href="/">
+            <iron-icon icon="home"></iron-icon>
+          </a>
+
+          <a data-route="photos" href="/photos">
+            <iron-icon icon="info"></iron-icon>
+          </a>
+
+          <a data-route="collections" href="/collections">
+            <iron-icon icon="mail"></iron-icon>
+          </a>
+              
+        </paper-menu>
+          
+      </div>
+    </paper-drawer-panel>  
+      
     <paper-drawer-panel id="paperDrawerPanel" force-narrow="true">
         
       <paper-header-panel drawer mode="seamed">
@@ -69,25 +95,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </paper-toolbar>
 
         <!-- Drawer Content -->
-          <paper-menu class="list" attr-for-selected="data-route" selected="{{route}}" on-iron-select="onMenuSelect">
-              <a data-route="home" href="/">
-                <iron-icon icon="home"></iron-icon>
-                <span>Home</span>
-              </a>
+        <paper-menu class="list" attr-for-selected="data-route" selected="{{route}}" on-iron-select="onMenuSelect">
+          <a data-route="home" href="/">
+            <iron-icon icon="home"></iron-icon>
+            <span>Home</span>
+          </a>
 
-              <a data-route="photos" href="/photos">
-                <iron-icon icon="info"></iron-icon>
-                <span>Photos</span>
-              </a>
+          <a data-route="photos" href="/photos">
+            <iron-icon icon="info"></iron-icon>
+            <span>Photos</span>
+          </a>
 
-              <a data-route="collections" href="/collections">
-                <iron-icon icon="mail"></iron-icon>
-                <span>Collections</span>
-              </a>
-          </paper-menu>
+          <a data-route="collections" href="/collections">
+            <iron-icon icon="mail"></iron-icon>
+            <span>Collections</span>
+          </a>
+              
+        </paper-menu>
+          
       </paper-header-panel>
 
-      <paper-header-panel main mode="standard">
+      <paper-header-panel main mode="waterfall">
           
         <!-- Main Toolbar -->
         <paper-toolbar id="mainToolbar">
@@ -110,10 +138,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
             <section data-route="home">
+                
               <paper-material elevation="1">                  
                 <p class="paper-font-body2">This is another card.</p>
               </paper-material>
-                
                 
               <paper-material elevation="1">
                 <my-greeting></my-greeting>
