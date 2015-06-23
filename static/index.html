@@ -59,7 +59,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <span id="browser-sync-binding"></span>
   <template is="dom-bind" id="app">
 
-    <paper-drawer-panel id="paperDrawerPanel" forceNarrow="true">
+    <paper-drawer-panel id="paperDrawerPanel" force-narrow="true">
         
       <paper-header-panel drawer mode="seamed">
           
@@ -88,7 +88,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </paper-header-panel>
 
       <paper-header-panel main mode="standard">
-
+          
         <!-- Main Toolbar -->
         <paper-toolbar id="mainToolbar">
             
@@ -106,11 +106,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <!-- Main Content -->
         <div class="content">
+            
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
             <section data-route="home">
-                
-              <paper-material elevation="1">
+              <paper-material elevation="1">                  
                 <p class="paper-font-body2">This is another card.</p>
               </paper-material>
                 
