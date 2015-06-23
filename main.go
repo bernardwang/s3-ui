@@ -17,7 +17,7 @@ func init() {
 
 	r := mux.NewRouter()
 	sr := r.PathPrefix("/api").Subrouter()
-	sr.HandleFunc("/posts", Posts)
+	sr.HandleFunc("/photos", Photos)
 	r.HandleFunc("/{rest:.*}", handler)
 	http.Handle("/", r)
 }
@@ -27,29 +27,29 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "static/"+r.URL.Path)
 }
 
-type Post struct {
-	Uid      int    `json:"uid"`
-	Text     string `json:"text"`
-	Username string `json:"username"`
-	Avatar   string `json:"avatar"`
-	Favorite bool   `json:"favorite"`
+type Photo struct {
+	ID      int    `json:"id"`
+	Desc     string `json:"desc"`
+	Author string `json:"author"`
+	Thumb   string `json:"thumb"`
+	Master string   `json:"master"`
 }
 
-func Posts(w http.ResponseWriter, r *http.Request) {
-	posts := []Post{}
+func Photos(w http.ResponseWriter, r *http.Request) {
+	photos := []Photo{}
 	// you'd use a real database here
-	file, err := ioutil.ReadFile("posts.json")
+	file, err := ioutil.ReadFile("photos.json")
 	if err != nil {
-		log.Println("Error reading posts.json:", err)
+		log.Println("Error reading photos.json:", err)
 		panic(err)
 	}
 	fmt.Printf("file: %s\n", string(file))
-	err = json.Unmarshal(file, &posts)
+	err = json.Unmarshal(file, &photos)
 	if err != nil {
-		log.Println("Error unmarshalling posts.json:", err)
+		log.Println("Error unmarshalling photos.json:", err)
 	}
 
-	bs, err := json.Marshal(posts)
+	bs, err := json.Marshal(photos)
 	if err != nil {
 		ReturnError(w, err)
 		return
